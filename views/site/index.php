@@ -1,53 +1,39 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model app\models\LoginForm */
+
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 
 $this->title = 'Cube Challenge';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-index">
+    <h1><?= Html::encode($this->title) ?></h1>
+    <p>Please fill out the following fields to configure the cube:</p>
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
+    <?php $form = ActiveForm::begin([
+        'id' => 'cubeSetting-form',
+        'layout' => 'horizontal',
+        'fieldConfig' => [
+            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+            'labelOptions' => ['class' => 'col-lg-1 control-label'],
+        ],
+    ]); ?>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <?= $form->field($model, 'T_tests')->textInput(['autofocus' => true]) ?>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
+        <?= $form->field($model, 'N_coordinates')->textInput() ?>
 
-    <div class="body-content">
+        <?= $form->field($model, 'M_operations')->textInput() ?>
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+        <div class="form-group">
+            <div class="col-lg-offset-1 col-lg-11">
+                <?= Html::submitButton('Send', ['class' => 'btn btn-primary', 'name' => 'send-button']) ?>
             </div>
         </div>
 
-    </div>
+    <?php ActiveForm::end(); ?>
 </div>
