@@ -27,7 +27,9 @@ class CubeSettingForm extends Model
         return [
             // username and password are both required
             [['T_tests', 'N_coordinates', 'M_operations' ], 'required'],
-            [['T_tests', 'N_coordinates', 'M_operations' ], 'integer'],
+            [['T_tests' ], 'integer', 'min' => '1', 'max' => '50'],
+            [['N_coordinates' ], 'integer', 'min' => '1', 'max' => '100'],
+            [['M_operations' ], 'integer', 'min' => '1', 'max' => '1000'],
         ];
     }
     /**

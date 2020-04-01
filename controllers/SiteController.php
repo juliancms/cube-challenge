@@ -7,6 +7,7 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\CubeSettingForm;
+use app\models\CubeOperationForm;
 use app\models\Cube;
 
 class SiteController extends Controller
@@ -42,6 +43,7 @@ class SiteController extends Controller
               $t = $model->getT_tests();
               $n = $model->getN_coordinates();
               $m = $model->getM_operations();
+              $model = new CubeOperationForm();
               return $this->render('operation', [
                   'model' => $model,
                   'T' => $t,
