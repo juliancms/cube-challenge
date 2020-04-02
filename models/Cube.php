@@ -13,7 +13,10 @@ class Cube
         $this->buildCube($n);
     }
 
-
+    /**
+     * Creates the cube with 0 value
+     * @return bool
+     */
     private function buildCube($n)
     {
         for ($i = 0; $i <= $n; $i++) {
@@ -25,11 +28,19 @@ class Cube
         }
     }
 
+    /**
+     * Updates the cube
+     * @return bool
+     */
     public function updateValue($x, $y, $z, $value)
     {
         $this->cube[$x][$y][$z] = $value;
     }
 
+    /**
+     * Calculate the value of the Cube
+     * @return string
+     */
     public function query($x1, $y1, $z1, $x2, $y2, $z2)
     {
         $sum = 0;
