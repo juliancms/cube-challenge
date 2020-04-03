@@ -14,8 +14,7 @@ class Cube
     }
 
     /**
-     * Creates the cube with 0 value
-     * @return bool
+     * Initialites 
      */
     private function buildCube($n)
     {
@@ -30,7 +29,6 @@ class Cube
 
     /**
      * Updates the cube
-     * @return bool
      */
     public function updateValue($x, $y, $z, $value)
     {
@@ -39,7 +37,7 @@ class Cube
 
     /**
      * Calculate the value of the Cube
-     * @return string
+     * @return integer
      */
     public function query($x1, $y1, $z1, $x2, $y2, $z2)
     {
